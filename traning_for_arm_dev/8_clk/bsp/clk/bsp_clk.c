@@ -36,8 +36,9 @@ void imx6u_clkinit(void)
 		CCM->CCSR |= (1 << 2);
 	}
 	CCM_ANALOG->PLL_ARM = (1 << 13) | ((88 << 0) & 0x7F);
-	CCM->CCSR &= ~(1 << 2);
 	CCM->CACRR = 1;
+	CCM->CCSR &= ~(1 << 2);
+
 
 	reg = CCM_ANALOG->PFD_528;
 	reg &= ~(0x3f3f3f3f);
